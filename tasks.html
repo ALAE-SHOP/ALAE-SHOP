@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ALAE_SHOP.1 - المهام</title><link rel="stylesheet" href="style.css">
+</head>
+<body><div class="stars"></div>
+<header><div class="nav"><a class="logo" href="index.html">⭐ ALAE<b>_SHOP.1</b></a><nav>
+<a href="index.html" data-key="home"></a><a href="wheel.html" data-key="wheel"></a><a href="tasks.html" class="active" data-key="tasks"></a><a href="rewards.html" data-key="rewards"></a><a href="how.html" data-key="how"></a><a href="contact.html" data-key="contact"></a>
+</nav><div class="auth-links"><a class="auth-link" data-auth-profile href="profile.html" style="display:none">👤 حسابي</a><a class="auth-link" data-auth-login href="login.html">🔐 تسجيل الدخول</a><a class="auth-link" data-auth-register href="register.html">📝 إنشاء حساب</a><button class="auth-link" data-auth-logout style="display:none">🚪 خروج</button></div><div class="lang"><button data-lang="ar">العربية</button><button data-lang="en">English</button><button data-lang="fr">Français</button></div></div></header>
+<div class="welcome">⭐ <span data-key="welcome"></span> ⭐<br><small data-key="sub"></small></div>
+<main class="container tasks-page"><section class="section"><div class="title"><h2>⚡ <span data-key="tasks">المهام</span></h2><p data-key="tasksIntro"></p></div>
+<div class="task-balance"><span data-key="yourPoints"></span> <strong data-points>0</strong> <span data-key="point"></span></div>
+<h3 class="task-group-title" data-key="dailyTasks"></h3>
+<div class="task-grid">
+<article class="task-card"><div class="task-icon">🔥</div><div class="task-body"><h3 data-key="dailyLoginTitle"></h3><p data-key="dailyLoginDesc"></p><span class="task-points">+5 ⭐</span></div><button class="btn primary task-btn" data-id="daily-login" data-add="5">ابدأ المهمة</button></article>
+<article class="task-card"><div class="task-icon">🎡</div><div class="task-body"><h3 data-key="dailyWheelTitle"></h3><p data-key="dailyWheelDesc"></p><span class="task-points">+5 ⭐</span></div><button class="btn primary task-btn" data-id="daily-wheel" data-add="5">ابدأ المهمة</button></article>
+<article class="task-card"><div class="task-icon">🎮</div><div class="task-body"><h3 data-key="gameTitle"></h3><p data-key="gameDesc"></p><span class="task-points">+20 ⭐</span></div><button class="btn primary task-btn" data-id="daily-game" data-add="20">🎬 مشاهدة الإعلان</button></article>
+<article class="task-card"><div class="task-icon">📸</div><div class="task-body"><h3 data-key="igTitle"></h3><p data-key="igDesc"></p><span class="task-points">+15 ⭐</span></div><button class="btn primary task-btn" data-id="daily-instagram" data-add="15">فتح Instagram</button></article>
+<article class="task-card"><div class="task-icon">💚</div><div class="task-body"><h3 data-key="waTitle"></h3><p data-key="waDesc"></p><span class="task-points">+10 ⭐</span></div><button class="btn primary task-btn" data-id="daily-whatsapp" data-add="10">فتح قناة WhatsApp</button></article>
+<article class="task-card"><div class="task-icon">📤</div><div class="task-body"><h3 data-key="shareTitle"></h3><p data-key="shareDesc"></p><span class="task-points">+15 ⭐</span></div><button class="btn primary task-btn" data-id="daily-share" data-add="15">مشاركة الرابط</button></article>
+</div>
+<h3 class="task-group-title special" data-key="specialTasks"></h3>
+<div class="task-grid special-grid">
+<article class="task-card"><div class="task-icon">👥</div><div class="task-body"><h3 data-key="inviteTitle"></h3><p data-key="inviteDesc"></p><span class="task-points">+25 ⭐</span></div><button class="btn primary task-btn" data-id="special-invite" data-add="25" data-requires="invite">ابدأ المهمة</button></article>
+<article class="task-card"><div class="task-icon">🎯</div><div class="task-body"><h3 data-key="fiveTitle"></h3><p data-key="fiveDesc"></p><span class="task-points">+30 ⭐</span></div><button class="btn primary task-btn" data-id="special-five" data-add="30" data-requires="five">ابدأ المهمة</button></article>
+<article class="task-card"><div class="task-icon">🔥</div><div class="task-body"><h3 data-key="sevenTitle"></h3><p data-key="sevenDesc"></p><span class="task-points">+50 ⭐</span></div><button class="btn primary task-btn" data-id="special-seven" data-add="50" data-requires="seven">ابدأ المهمة</button></article>
+<article class="task-card"><div class="task-icon">🛒</div><div class="task-body"><h3 data-key="shopTitle"></h3><p data-key="shopDesc"></p><span class="task-points">+100 ⭐</span></div><button class="btn primary task-btn" data-id="special-shop" data-add="100" data-requires="shop">ابدأ المهمة</button></article>
+</div>
+</section></main><footer>© 2026 ALAE_SHOP.1</footer>
+<div id="taskModal" class="task-modal" aria-hidden="true"><div class="task-modal-box"><button id="taskModalClose" class="task-modal-close" type="button">×</button><div id="taskModalIcon" class="task-modal-icon">⭐</div><h3 id="taskModalTitle" data-key="modalComplete"></h3><p id="taskModalText" data-key="modalComplete"></p><div id="taskModalCountdown" class="task-modal-countdown"></div><div id="taskModalActions" class="task-modal-actions"></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="auth.js"></script><script src="script.js?v=20260818"></script></body></html>

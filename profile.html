@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ALAE_SHOP.1 - الملف الشخصي</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.profile-wrap{max-width:900px;margin:auto}.profile-card{background:rgba(18,0,22,.92);border:1px solid #ff16c8;border-radius:24px;padding:26px;box-shadow:0 0 30px #ff16c844}.profile-head{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.avatar{width:92px;height:92px;border-radius:50%;object-fit:cover;border:3px solid #08d9ff;box-shadow:0 0 20px #08d9ff66;background:#120016}.avatar-fallback{display:grid;place-items:center;font-size:34px;font-weight:900}.profile-name{font-size:28px;font-weight:900}.profile-email{opacity:.75}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}.stat{padding:18px;border:1px solid #7b1d88;border-radius:16px;background:#09000e;text-align:center}.stat b{display:block;font-size:27px;color:#ffe500}.stat span{font-size:13px;opacity:.8}.ref-box{margin-top:18px;padding:18px;border:1px solid #7b1d88;border-radius:16px;background:#09000e}.ref-row{display:flex;gap:8px;margin-top:10px}.ref-row input{flex:1;min-width:0;padding:12px;border-radius:10px;border:1px solid #7b1d88;background:#120016;color:#fff}.profile-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.cooldown{margin-top:18px;padding:15px;border-radius:15px;background:#09000e;border:1px solid #08d9ff;color:#08d9ff;font-weight:800;text-align:center}@media(max-width:650px){.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body><div class="stars"></div>
+<header><div class="nav"><a class="logo" href="index.html">⭐ ALAE<b>_SHOP.1</b></a><nav>
+<a href="index.html" data-key="home"></a><a href="wheel.html" data-key="wheel"></a><a href="tasks.html" data-key="tasks"></a><a href="rewards.html" data-key="rewards"></a><a href="how.html" data-key="how"></a><a href="contact.html" data-key="contact"></a>
+</nav><div class="auth-links"><a class="auth-link" data-auth-profile href="profile.html" style="display:none">👤 حسابي</a><a class="auth-link" data-auth-login href="login.html">🔐 تسجيل الدخول</a><a class="auth-link" data-auth-register href="register.html">📝 إنشاء حساب</a><button class="auth-link" data-auth-logout style="display:none">🚪 خروج</button></div><div class="lang"><button data-lang="ar">العربية</button><button data-lang="en">English</button><button data-lang="fr">Français</button></div></div></header>
+<div class="welcome">⭐ <span data-key="profileTitle"></span> ⭐<br><small data-key="profileSub"></small></div>
+<main class="container profile-wrap"><section class="section"><div class="profile-card">
+<div class="profile-head"><div id="avatarWrap" class="avatar avatar-fallback">⭐</div><div><div id="profileName" class="profile-name">جاري تحميل الحساب...</div><div id="profileEmail" class="profile-email"></div><div id="profileUsername" class="profile-email"></div></div></div>
+<div class="stats"><div class="stat"><b id="statPoints">0</b><span data-key="pointsStat"></span></div><div class="stat"><b id="statReferrals">0</b><span data-key="referralsStat"></span></div><div class="stat"><b id="statRewards">0</b><span data-key="rewardsStat"></span></div><div class="stat"><b id="statTasks">0</b><span data-key="tasksStat"></span></div></div>
+<div class="cooldown" id="wheelCooldown">🎡 جاري حساب وقت الدوران...</div>
+<div class="ref-box"><b data-key="refTitle"></b><div class="ref-row"><input id="refLink" readonly><button id="copyRef" class="btn primary" data-key="copy"></button></div><small data-key="refDesc"></small></div>
+<div class="profile-actions"><a class="btn secondary" href="tasks.html" data-key="tasks"></a><a class="btn primary" href="wheel.html" data-key="wheel"></a><a class="btn secondary" href="rewards.html" data-key="rewards"></a></div>
+</div></section></main><footer>© 2026 ALAE_SHOP.1</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="auth.js"></script><script src="script.js?v=20260818"></script>
+<script>
+(async()=>{
+ await (window.ALAE_AUTH_READY||Promise.resolve(null));
+ const user=window.ALAE_AUTH?.currentUser;
+ if(!user){location.replace('login.html');return;}
+ const meta=user.user_metadata||{};
+ const name=meta.full_name||meta.username||user.email||'ALAE SHOP';
+ document.getElementById('profileName').textContent=name;
+ document.getElementById('profileEmail').textContent=user.email||'';
+ document.getElementById('profileUsername').textContent=meta.username?('@'+meta.username):'';
+ const avatar=meta.avatar_url||meta.picture||meta.photo_url;
+ const wrap=document.getElementById('avatarWrap');
+ if(avatar){const img=document.createElement('img');img.className='avatar';img.src=avatar;img.alt='صورة الحساب';wrap.replaceWith(img);}
+ const {data,error}=await window.supabaseClient.rpc('get_my_profile');
+ if(error||!data){console.error(error);return;}
+ document.getElementById('statPoints').textContent=Number(data.points||0).toLocaleString('ar-MA');
+ document.getElementById('statReferrals').textContent=Number(data.referrals_count||0).toLocaleString('ar-MA');
+ document.getElementById('statRewards').textContent=Number(data.rewards_won||0).toLocaleString('ar-MA');
+ document.getElementById('statTasks').textContent=Number(data.tasks_completed||0).toLocaleString('ar-MA');
+ const ref=`${location.origin}${location.pathname.replace(/\/[^\/]*$/,'/') }register.html?ref=${encodeURIComponent(user.id)}`.replace('  ',' ');
+ document.getElementById('refLink').value=ref;
+ document.getElementById('copyRef').onclick=async()=>{try{await navigator.clipboard.writeText(ref);alert((window.ALAE_TEXTS?.()||{}).copyDone||'Copied ✓');}catch(e){alert(ref);}};
+ async function update(){const {data}=await window.supabaseClient.rpc('get_wheel_status');const next=Number(data?.next_spin_at_ms||0);const left=Math.max(0,next-Date.now());const t=window.ALAE_TEXTS?.()||{};document.getElementById('wheelCooldown').textContent=left===0?(t.spinAvailable||'🎉 Wheel available now'):(t.spinAgain||'⏳ Next spin in')+' '+new Date(left).toISOString().slice(11,19);}
+ update();setInterval(update,1000);
+})();
+</script></body></html>

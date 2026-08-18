@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ALAE_SHOP.1 - عجلة الحظ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stars"></div>
+<header><div class="nav">
+<a class="logo" href="index.html">⭐ ALAE<b>_SHOP.1</b></a>
+<nav>
+<a href="index.html" data-key="home"></a>
+<a href="wheel.html" class="active" data-key="wheel"></a>
+<a href="tasks.html" data-key="tasks"></a>
+<a href="rewards.html" data-key="rewards"></a>
+<a href="how.html" data-key="how"></a>
+<a href="contact.html" data-key="contact"></a>
+</nav>
+<div class="auth-links"><a class="auth-link" data-auth-profile href="profile.html" style="display:none">👤 حسابي</a><a class="auth-link" data-auth-login href="login.html">🔐 تسجيل الدخول</a><a class="auth-link" data-auth-register href="register.html">📝 إنشاء حساب</a><button class="auth-link" data-auth-logout style="display:none">🚪 خروج</button></div><div class="lang"><button data-lang="ar">العربية</button><button data-lang="en">English</button><button data-lang="fr">Français</button></div>
+</div></header>
+
+<div class="welcome">⭐ <span data-key="welcome"></span> ⭐<br><small data-key="sub"></small></div>
+
+<main class="container">
+<section class="section wheel-page">
+<div class="title"><h2>🎡 <span data-key="wheel"></span></h2><p data-key="wheelSub"></p><div class="engagement-tip" data-key="engagementTip"></div></div>
+
+<div class="wheel-layout">
+<div class="wheel-wrap">
+  <div class="pointer" aria-hidden="true">▼</div>
+  <div class="wheel" id="wheel" aria-label="Lucky wheel">
+    <div class="wheel-label l1">⭐<b>5</b></div>
+    <div class="wheel-label l2">⭐<b>25</b></div>
+    <div class="wheel-label l3"><b data-key="retry"></b></div>
+    <div class="wheel-label l4">⭐<b>15</b></div>
+    <div class="wheel-label l5">⭐<b>1</b></div>
+    <div class="wheel-label l6">⭐<b>50</b></div>
+    <div class="wheel-label l7">⭐<b>100</b></div>
+    <div class="wheel-label l8">⭐<b>500</b></div>
+    <div class="center-img"><img src="shop.jpg" alt="ALAE SHOP"></div>
+  </div>
+</div>
+
+<div class="card wheel-panel">
+<h2 data-key="available"></h2>
+<div class="prizes">
+<div class="prize">⭐ 5 <span data-key="pointsWord"></span></div>
+<div class="prize">⭐ 25 <span data-key="pointsWord"></span></div>
+<div class="prize" data-key="retry"></div>
+<div class="prize">⭐ 15 <span data-key="pointsWord"></span></div>
+<div class="prize">⭐ 1 <span data-key="pointsWord"></span></div>
+<div class="prize">⭐ 50 <span data-key="pointsWord"></span></div>
+<div class="prize">⭐ 100 <span data-key="pointsWord"></span></div>
+<div class="prize">⭐ 500 <span data-key="pointsWord"></span></div>
+</div>
+<div class="buttons"><button class="btn primary spin-btn" data-key="spin"></button></div><div data-wheel-cooldown style="text-align:center;margin:10px 0;font-weight:800;color:#08d9ff"></div>
+<div class="result" aria-live="polite"></div>
+<p>⭐ <span data-key="myPoints"></span>: <b data-points>0</b></p>
+</div>
+</div>
+</section>
+</main>
+<footer>© 2026 ALAE_SHOP.1</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="auth.js"></script><script src="script.js?v=20260818"></script>
+</body>
+</html>
